@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 440" width="100%" height="100%">
+  <defs>
+    <!-- Deep obsidian matte monocoque -->
+    <linearGradient id="sh_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141c2c"/>
+      <stop offset="45%" stop-color="#080c16"/>
+      <stop offset="100%" stop-color="#020408"/>
+    </linearGradient>
+
+    <!-- Outer Rim: Titanium with Arancio Xanto laser rim -->
+    <linearGradient id="sh_rim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="25%" stop-color="#94a3b8"/>
+      <stop offset="45%" stop-color="#1e293b"/>
+      <stop offset="75%" stop-color="#ff6b00"/>
+      <stop offset="100%" stop-color="#9a3412"/>
+    </linearGradient>
+
+    <!-- Layer 3: Arancio Xanto Neon Laser (Outermost V-Stinger & Outer Louvers) -->
+    <linearGradient id="sh_arancio" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff2e6"/>
+      <stop offset="25%" stop-color="#ff994d"/>
+      <stop offset="70%" stop-color="#ff5500"/>
+      <stop offset="100%" stop-color="#b33300"/>
+    </linearGradient>
+
+    <!-- Layer 2: Brilliant Titanium Platinum (Middle V & Middle Louvers) -->
+    <linearGradient id="sh_titanium" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="35%" stop-color="#f8fafc"/>
+      <stop offset="75%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+
+    <!-- Layer 1: Anodized Gold / Warm Amber (Innermost V & Inner Louvers) -->
+    <linearGradient id="sh_gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="35%" stop-color="#f59e0b"/>
+      <stop offset="75%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </linearGradient>
+
+    <!-- Forged Carbon Pattern -->
+    <pattern id="sh_carbon" width="28" height="28" patternUnits="userSpaceOnUse">
+      <rect width="28" height="28" fill="#060912"/>
+      <polygon points="0,0 14,4 18,16 4,12" fill="#0d1522" opacity="0.85"/>
+      <polygon points="14,4 28,0 24,14 18,8" fill="#141f33" opacity="0.6"/>
+      <polygon points="4,12 18,16 14,28 0,22" fill="#0a101b" opacity="0.9"/>
+      <polygon points="18,16 28,14 28,28 16,24" fill="#18253b" opacity="0.65"/>
+      <line x1="0" y1="14" x2="28" y2="14" stroke="#ff6b00" stroke-width="0.3" opacity="0.15"/>
+    </pattern>
+
+    <!-- Shield Laser Glow Filter -->
+    <filter id="sh_glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#ff5500" flood-opacity="0.45"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.9"/>
+    </filter>
+
+    <!-- Monogram Depth Shadow -->
+    <filter id="sh_m_shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#000000" flood-opacity="0.9"/>
+    </filter>
+  </defs>
+
+  <!-- 1. PURE 1:1 SUPERCAR SHIELD FRAME (WIDTH == HEIGHT == 400px) -->
+  <g filter="url(#sh_glow)">
+    <!-- Outer Shield Plate (400 x 400) -->
+    <path d="M 220,20 L 420,80 L 388,260 L 220,420 L 52,260 L 20,80 Z" 
+          fill="url(#sh_bg)" 
+          stroke="url(#sh_rim)" 
+          stroke-width="5" 
+          stroke-linejoin="miter" 
+          stroke-miterlimit="4"/>
+
+    <!-- Forged Carbon Core Inlay -->
+    <path d="M 220,32 L 408,88 L 378,256 L 220,404 L 62,256 L 32,88 Z" 
+          fill="url(#sh_carbon)"/>
+
+    <!-- High-Precision Laser Pinstripe (Arancio Xanto) -->
+    <path d="M 220,40 L 400,94 L 370,252 L 220,394 L 70,252 L 40,94 Z" 
+          fill="none" 
+          stroke="url(#sh_arancio)" 
+          stroke-width="2" 
+          stroke-opacity="0.9" 
+          stroke-linejoin="round"/>
+  </g>
+
+  <!-- 2. TRIPLE-NESTED M MONOGRAM (100% CONTAINED INSIDE 1:1 SHIELD) -->
+  <g filter="url(#sh_m_shadow)">
+    
+    <!-- LAYER 1: INNERMOST M (Anodized Gold / Warm Amber) -->
+    <g fill="url(#sh_gold)">
+      <rect x="142" y="115" width="12" height="135" rx="2"/>
+      <rect x="286" y="115" width="12" height="135" rx="2"/>
+      <path d="M 142,115 L 154,115 L 220,225 L 286,115 L 298,115 L 220,240 Z" />
+    </g>
+
+    <!-- LAYER 2: MIDDLE M (Brilliant Titanium Platinum) -->
+    <g fill="url(#sh_titanium)">
+      <rect x="120" y="115" width="12" height="135" rx="2"/>
+      <rect x="308" y="115" width="12" height="135" rx="2"/>
+      <path d="M 120,115 L 132,115 L 220,280 L 308,115 L 320,115 L 220,295 Z" />
+    </g>
+
+    <!-- LAYER 3: OUTERMOST M (Arancio Xanto Neon Laser Stinger) -->
+    <g fill="url(#sh_arancio)">
+      <rect x="98" y="115" width="12" height="135" rx="2"/>
+      <rect x="330" y="115" width="12" height="135" rx="2"/>
+      <path d="M 98,115 L 110,115 L 220,334 L 330,115 L 342,115 L 220,350 Z" />
+    </g>
+
+    <!-- Metallic Specular Edge Chamfers (White Highlights) -->
+    <line x1="98" y1="115" x2="220" y2="334" stroke="#ffffff" stroke-width="1.6" stroke-opacity="0.85"/>
+    <line x1="342" y1="115" x2="220" y2="334" stroke="#ffffff" stroke-width="1.6" stroke-opacity="0.85"/>
+    <line x1="120" y1="115" x2="220" y2="280" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.9"/>
+    <line x1="320" y1="115" x2="220" y2="280" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.9"/>
+    <line x1="104" y1="115" x2="104" y2="250" stroke="#ffffff" stroke-width="1" stroke-opacity="0.5"/>
+    <line x1="336" y1="115" x2="336" y2="250" stroke="#ffffff" stroke-width="1" stroke-opacity="0.5"/>
+  </g>
+</svg>

@@ -1,0 +1,1477 @@
+/**
+ * ==============================================================================
+ * LUXURY CAR FLEET & SHOWROOM LANDING PAGE
+ * Modern Dark Luxury Design System · Inspired by Lamborghini, NeonVolt, VinFast
+ * ==============================================================================
+ */
+
+:root {
+  --bg-deep: #05070d;
+  --bg-surface: #0a0e18;
+  --bg-card: rgba(16, 23, 38, 0.75);
+  --bg-card-hover: rgba(24, 34, 56, 0.88);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(255, 85, 0, 0.5);
+  --border-glow: rgba(255, 85, 0, 0.35);
+
+  --accent-arancio: #ff5500;
+  --accent-arancio-light: #ff7722;
+  --accent-gold: #f59e0b;
+  --accent-titanium: #cbd5e1;
+  --accent-emerald: #10b981;
+  --accent-whatsapp: #25D366;
+  --accent-whatsapp-hover: #1ebd58;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+
+  --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  --container-max: 1280px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  font-family: var(--font-display);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-deep);
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Background Atmosphere Glows */
+.ambient-glow-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 85, 0, 0.12) 0%, rgba(13, 19, 31, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-glow-mid {
+  position: absolute;
+  top: 1800px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, rgba(13, 19, 31, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==============================================================================
+   NAVBAR (Smart Auto-Hide + Laser Progress Bar + WhatsApp & Programare VIP pe un rând)
+   ============================================================================== */
+.sh-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 16px 0;
+  background: rgba(5, 7, 13, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), background 0.28s ease, padding 0.28s ease;
+  will-change: transform;
+}
+
+.sh-navbar.is-scrolled {
+  padding: 11px 0;
+  background: rgba(5, 7, 13, 0.94);
+  border-bottom-color: rgba(255, 85, 0, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.sh-navbar.is-hidden {
+  transform: translateY(-100%);
+}
+
+.sh-nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.sh-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.sh-brand-emblem {
+  width: 42px;
+  height: 42px;
+  transition: var(--transition);
+  filter: drop-shadow(0 2px 8px rgba(255, 85, 0, 0.45));
+}
+
+.sh-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.sh-brand-name {
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.sh-brand-sub {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent-arancio);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Acțiuni Navbar pe un singur rând (WhatsApp Verde + Programare VIP) */
+.sh-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+.sh-btn-whatsapp-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #25D366 0%, #1ebd58 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-sm);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  transition: var(--transition);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.38);
+}
+
+.sh-btn-whatsapp-nav:hover {
+  background: linear-gradient(135deg, #2ae670 0%, #20c85e 100%);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  transform: translateY(-1px);
+}
+
+.sh-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #ff6b00 0%, #e04400 100%);
+  border: 1px solid rgba(255, 120, 40, 0.6);
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition);
+  box-shadow: 0 4px 14px rgba(255, 85, 0, 0.35);
+}
+
+.sh-btn-primary:hover {
+  background: linear-gradient(135deg, #ff7e1f 0%, #ff5500 100%);
+  box-shadow: 0 6px 20px rgba(255, 85, 0, 0.55);
+  transform: translateY(-1px);
+}
+
+/* Laser Progress Bar la baza navbar-ului */
+.sh-laser-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, #ff5500 0%, #ff8833 60%, #f59e0b 100%);
+  box-shadow: 0 0 10px rgba(255, 85, 0, 0.8);
+  pointer-events: none;
+  transition: width 0.08s linear;
+}
+
+/* ==============================================================================
+   HERO SECTION (Dark Luxury Showcase + Hero Search Autovibe Integration)
+   ============================================================================== */
+.sh-hero {
+  position: relative;
+  min-height: 740px;
+  padding-top: 130px;
+  padding-bottom: 55px;
+  display: flex;
+  align-items: center;
+  background: url('../images/hero_highway_twilight.jpg') center 45% / cover no-repeat;
+  overflow: hidden;
+}
+
+.sh-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 35%, rgba(5, 7, 13, 0.35) 0%, rgba(5, 7, 13, 0.72) 75%, #05070d 100%),
+              linear-gradient(180deg, rgba(5, 7, 13, 0.45) 0%, transparent 40%, rgba(5, 7, 13, 0.85) 85%, #05070d 100%);
+  z-index: 0;
+}
+
+.sh-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.sh-eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 85, 0, 0.4);
+  border-radius: 30px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-arancio);
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  box-shadow: 0 0 20px rgba(255, 85, 0, 0.15);
+}
+
+.sh-hero-title {
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -1.2px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  filter: drop-shadow(0 4px 25px rgba(0, 0, 0, 0.95));
+}
+
+.sh-hero-accent-orange {
+  display: block;
+  background: linear-gradient(90deg, #ff7e1f 0%, #ff5500 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sh-hero-sub {
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: #d1d5db;
+  max-width: 780px;
+  margin: 0 auto 36px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
+}
+
+/* ==============================================================================
+   HERO SEARCH BOX (Element Adaptat din AutoVibe, Stil Dark Luxury Glassmorphism)
+   ============================================================================== */
+.sh-hero-search-card {
+  background: rgba(14, 20, 33, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 18px 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 85, 0, 0.12);
+  margin: 0 auto 40px;
+}
+
+.sh-search-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+
+.sh-search-field {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.sh-search-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sh-search-select-wrap {
+  position: relative;
+}
+
+.sh-search-select {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(6, 9, 17, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 600;
+  appearance: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.sh-search-select:focus {
+  outline: none;
+  border-color: var(--accent-arancio);
+  box-shadow: 0 0 12px rgba(255, 85, 0, 0.3);
+}
+
+.sh-search-arrow {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+.sh-btn-search {
+  padding: 13px 28px;
+  background: linear-gradient(135deg, #ff6b00 0%, #e04400 100%);
+  border: 1px solid rgba(255, 120, 40, 0.6);
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 100%;
+  min-height: 48px;
+  transition: var(--transition);
+  box-shadow: 0 4px 18px rgba(255, 85, 0, 0.4);
+}
+
+.sh-btn-search:hover {
+  background: linear-gradient(135deg, #ff7e1f 0%, #ff5500 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 85, 0, 0.6);
+}
+
+/* Stats Counter Row (din Imaginea 3) */
+.sh-stats-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-top: 10px;
+}
+
+.sh-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sh-stat-val {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.sh-stat-sub {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==============================================================================
+   TRUST BADGES STRIP (din Imaginea 2 - VinFast)
+   ============================================================================== */
+.sh-trust-strip-section {
+  padding: 24px 0;
+  background: rgba(10, 14, 24, 0.95);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sh-trust-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.sh-trust-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sh-tb-icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255, 85, 0, 0.1);
+  color: var(--accent-arancio);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 85, 0, 0.25);
+}
+
+.sh-tb-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.sh-tb-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.sh-tb-desc {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+/* ==============================================================================
+   FEATURED MODEL SPOTLIGHT (din Imaginea 3 - Cardul Vedetă Sterrato)
+   ============================================================================== */
+.sh-featured-section {
+  padding: 90px 0 60px;
+  position: relative;
+}
+
+.sh-section-header {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.sh-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(255, 85, 0, 0.1);
+  border: 1px solid rgba(255, 85, 0, 0.3);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-arancio);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.sh-section-title {
+  font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #fff;
+}
+
+.sh-featured-card {
+  background: linear-gradient(145deg, rgba(16, 23, 38, 0.85) 0%, rgba(9, 13, 22, 0.95) 100%);
+  border: 1px solid rgba(255, 85, 0, 0.35);
+  border-radius: var(--radius-xl);
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 85, 0, 0.15);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.sh-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 85, 0, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.sh-fc-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-arancio);
+  margin-bottom: 8px;
+}
+
+.sh-fc-title {
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.sh-fc-desc {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.sh-fc-specs-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sh-fc-spec-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.sh-fc-spec-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.sh-fc-spec-lbl {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.sh-fc-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.sh-fc-price {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+.sh-fc-price-sub {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-emerald);
+  text-transform: uppercase;
+}
+
+.sh-fc-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sh-btn-discover-car {
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #ff6b00 0%, #e04400 100%);
+  border: 1px solid rgba(255, 120, 40, 0.7);
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(255, 85, 0, 0.45);
+  transition: var(--transition);
+}
+
+.sh-btn-discover-car:hover {
+  background: linear-gradient(135deg, #ff7e1f 0%, #ff5500 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(255, 85, 0, 0.65);
+}
+
+.sh-btn-secondary {
+  padding: 14px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.sh-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.sh-featured-media {
+  position: relative;
+  text-align: center;
+}
+
+.sh-featured-img {
+  width: 100%;
+  max-width: 580px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--border-subtle);
+  transition: var(--transition);
+}
+
+.sh-featured-img:hover {
+  transform: scale(1.02);
+}
+
+/* ==============================================================================
+   FLEET / SHOWROOM LINEUP SECTION (din Imaginea 3 & Imaginea 1)
+   ============================================================================== */
+.sh-fleet-section {
+  padding: 70px 0 90px;
+}
+
+.sh-filter-pills-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.sh-filter-pill {
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: 30px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.sh-filter-pill:hover,
+.sh-filter-pill.active {
+  background: rgba(255, 85, 0, 0.15);
+  border-color: var(--accent-arancio);
+  color: #fff;
+  box-shadow: 0 0 14px rgba(255, 85, 0, 0.3);
+}
+
+.sh-fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.sh-car-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.sh-car-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(255, 85, 0, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 85, 0, 0.18);
+}
+
+.sh-car-media {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #090e17;
+}
+
+.sh-car-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.sh-car-card:hover .sh-car-img {
+  transform: scale(1.05);
+}
+
+.sh-car-chip-status {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 4px 10px;
+  background: rgba(5, 7, 13, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-emerald);
+  text-transform: uppercase;
+}
+
+.sh-car-chip-status.gold {
+  color: var(--accent-gold);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.sh-car-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.sh-car-make {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--accent-arancio);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.sh-car-name {
+  font-size: 1.28rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.3px;
+  margin-bottom: 14px;
+}
+
+.sh-car-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 18px;
+}
+
+.sh-spec-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.sh-spec-val {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.sh-spec-lbl {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.sh-car-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.sh-car-price-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.sh-car-price {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.sh-car-price-sub {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent-emerald);
+}
+
+.sh-btn-car-detail {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.sh-btn-car-detail:hover {
+  background: var(--accent-arancio);
+  border-color: var(--accent-arancio);
+  box-shadow: 0 0 12px rgba(255, 85, 0, 0.4);
+}
+
+/* ==============================================================================
+   TRUST & SERVICES ECOSYSTEM (din Imaginea 1 - 4 Piloni Structurați)
+   ============================================================================== */
+.sh-services-section {
+  padding: 90px 0;
+  background: rgba(10, 14, 24, 0.6);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sh-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.sh-service-card {
+  background: rgba(16, 23, 38, 0.5);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  transition: var(--transition);
+}
+
+.sh-service-card:hover {
+  background: rgba(20, 29, 48, 0.7);
+  border-color: rgba(255, 85, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.sh-sc-icon-wrap {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(255, 85, 0, 0.12);
+  border: 1px solid rgba(255, 85, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-arancio);
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.sh-sc-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.sh-sc-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ==============================================================================
+   REVIEWS & COMMUNITY SOCIAL PROOF (din Imaginea 1)
+   ============================================================================== */
+.sh-reviews-section {
+  padding: 90px 0;
+}
+
+.sh-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.sh-review-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sh-rc-stars {
+  color: var(--accent-gold);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.sh-rc-quote {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-main);
+  margin-bottom: 24px;
+  font-style: italic;
+  flex: 1;
+}
+
+.sh-rc-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sh-rc-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1e293b;
+  border: 1px solid rgba(255, 85, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: var(--accent-arancio);
+  font-size: 0.9rem;
+}
+
+.sh-rc-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.sh-rc-name {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.sh-rc-car {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+/* ==============================================================================
+   SHOWROOM VIP BOOKING & LOCATION (din Imaginea 2 - VinFast Split Layout)
+   ============================================================================== */
+.sh-booking-section {
+  padding: 90px 0;
+  background: radial-gradient(circle at 80% 50%, rgba(255, 85, 0, 0.08) 0%, transparent 60%), #070a12;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.sh-booking-split {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: stretch;
+}
+
+.sh-booking-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+}
+
+.sh-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.sh-input-field {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(6, 9, 17, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.sh-input-field:focus {
+  outline: none;
+  border-color: var(--accent-arancio);
+  box-shadow: 0 0 12px rgba(255, 85, 0, 0.3);
+}
+
+.sh-showroom-info-card {
+  background: linear-gradient(145deg, rgba(16, 23, 38, 0.8) 0%, rgba(9, 13, 22, 0.9) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sh-sic-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 28px 0;
+}
+
+.sh-sic-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.sh-sic-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 85, 0, 0.1);
+  color: var(--accent-arancio);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sh-sic-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.sh-sic-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* ==============================================================================
+   INTERACTIVE VIP CALENDAR MODAL (Alegere Dată, Oră, Nume -> WhatsApp)
+   ============================================================================== */
+.sh-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+
+.sh-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sh-modal-box {
+  background: linear-gradient(145deg, rgba(17, 24, 39, 0.96) 0%, rgba(10, 14, 24, 0.98) 100%);
+  border: 1px solid rgba(255, 85, 0, 0.4);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  width: 100%;
+  max-width: 540px;
+  position: relative;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 85, 0, 0.25);
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sh-modal-overlay.active .sh-modal-box {
+  transform: translateY(0) scale(1);
+}
+
+.sh-modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.sh-modal-close-btn:hover {
+  background: rgba(255, 85, 0, 0.2);
+  border-color: var(--accent-arancio);
+}
+
+.sh-modal-title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.sh-modal-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.sh-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sh-calendar-slots-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.sh-time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.sh-time-slot-btn {
+  padding: 10px;
+  background: rgba(6, 9, 17, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.sh-time-slot-btn:hover,
+.sh-time-slot-btn.active {
+  background: rgba(255, 85, 0, 0.2);
+  border-color: var(--accent-arancio);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 85, 0, 0.35);
+}
+
+.sh-btn-confirm-wa {
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #25D366 0%, #1ebd58 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.4);
+  transition: var(--transition);
+  margin-top: 8px;
+}
+
+.sh-btn-confirm-wa:hover {
+  background: linear-gradient(135deg, #2ae670 0%, #20c85e 100%);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6);
+  transform: translateY(-1px);
+}
+
+/* ==============================================================================
+   SCROLL TO TOP BUTTON (cu Circular Progress Ring la Scroll)
+   ============================================================================== */
+.sh-scroll-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 990;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(6, 9, 17, 0.9);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.sh-scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.sh-scroll-top-btn:hover {
+  border-color: var(--accent-arancio);
+  box-shadow: 0 0 16px rgba(255, 85, 0, 0.45);
+}
+
+.sh-progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.sh-progress-ring-track {
+  stroke: rgba(255, 255, 255, 0.08);
+}
+
+.sh-progress-ring-circle {
+  stroke: var(--accent-arancio);
+  stroke-dasharray: 138;
+  stroke-dashoffset: 138;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.sh-st-arrow {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  margin-top: -2px;
+}
+
+/* ==============================================================================
+   FOOTER (Official Showroom)
+   ============================================================================== */
+.sh-footer {
+  padding: 70px 0 30px;
+  background: #030508;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.sh-footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.sh-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sh-footer-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+.sh-footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sh-footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.86rem;
+  transition: var(--transition);
+}
+
+.sh-footer-links a:hover {
+  color: var(--accent-arancio);
+}
+
+.sh-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+/* ==============================================================================
+   RESPONSIVE ADAPTATIONS
+   ============================================================================== */
+@media (max-width: 1024px) {
+  .sh-search-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .sh-fleet-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sh-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sh-featured-card {
+    grid-template-columns: 1fr;
+    padding: 32px;
+  }
+  .sh-trust-badges-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .sh-booking-split {
+    grid-template-columns: 1fr;
+  }
+  .sh-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sh-hero {
+    min-height: auto;
+    padding-top: 105px;
+    padding-bottom: 40px;
+  }
+  .sh-hero-title {
+    font-size: clamp(1.65rem, 6.8vw, 2.4rem);
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+  .sh-eyebrow-pill {
+    font-size: 0.65rem;
+    letter-spacing: 0.8px;
+    padding: 6px 12px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .sh-hero-sub {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    padding: 0 10px;
+  }
+  .sh-brand-sub {
+    display: none;
+  }
+  .sh-brand-name {
+    font-size: 1rem;
+  }
+  .sh-btn-whatsapp-nav {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+  .sh-btn-primary {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+  .sh-search-grid {
+    grid-template-columns: 1fr;
+  }
+  .sh-fleet-grid {
+    grid-template-columns: 1fr;
+  }
+  .sh-services-grid {
+    grid-template-columns: 1fr;
+  }
+  .sh-reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  .sh-trust-badges-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .sh-stats-strip {
+    gap: 20px;
+  }
+  .sh-footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .sh-footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}

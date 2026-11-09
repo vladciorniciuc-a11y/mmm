@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 70" width="100%" height="100%">
+  <defs>
+    <linearGradient id="b2_arancio" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffb366"/>
+      <stop offset="30%" stop-color="#ff6600"/>
+      <stop offset="80%" stop-color="#ff4400"/>
+      <stop offset="100%" stop-color="#b32d00"/>
+    </linearGradient>
+
+    <linearGradient id="b2_titanium" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#f8fafc"/>
+      <stop offset="70%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+
+    <filter id="b2_glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#ff5500" flood-opacity="0.55"/>
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#b2_glow)" transform="translate(50, 35)">
+    <!-- LEFT M (Arancio) -->
+    <path d="M -46,-30 L -33,-30 L -23,-4 L -13,-30 L 0,-30 L 0,30 L -11,30 L -11,-7 L -18,12 L -28,12 L -35,-7 L -35,30 L -46,30 Z" 
+          fill="url(#b2_arancio)" 
+          stroke="#ffffff" 
+          stroke-width="0.6" 
+          stroke-opacity="0.5"/>
+
+    <!-- CENTER INVERTED M (Titanium / Negative-Space Gem) -->
+    <path d="M -15,-26 L -4,-26 L 0,-14 L 4,-26 L 15,-26 L 15,26 L 6,26 L 6,-4 L 0,9 L -6,-4 L -6,26 L -15,26 Z" 
+          fill="url(#b2_titanium)" 
+          stroke="#050811" 
+          stroke-width="1.8"/>
+
+    <!-- RIGHT M (Arancio) -->
+    <path d="M 0,-30 L 13,-30 L 23,-4 L 33,-30 L 46,-30 L 46,30 L 35,30 L 35,-7 L 28,12 L 18,12 L 11,-7 L 11,30 L 0,30 Z" 
+          fill="url(#b2_arancio)" 
+          stroke="#ffffff" 
+          stroke-width="0.6" 
+          stroke-opacity="0.5"/>
+  </g>
+</svg>

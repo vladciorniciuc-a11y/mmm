@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" width="100%" height="100%">
+  <defs>
+    <!-- Background Shield Gradient: Deep Obsidian & Matte Titanium -->
+    <linearGradient id="shieldBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111726"/>
+      <stop offset="40%" stop-color="#080c15"/>
+      <stop offset="100%" stop-color="#020408"/>
+    </linearGradient>
+
+    <!-- Outer Chamfer Bevel: Stealth Gunmetal with directional rim light -->
+    <linearGradient id="stealthBevel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="18%" stop-color="#94a3b8"/>
+      <stop offset="45%" stop-color="#1e293b"/>
+      <stop offset="75%" stop-color="#ff6b00"/>
+      <stop offset="100%" stop-color="#9a3412"/>
+    </linearGradient>
+
+    <!-- Arancio Xanto Laser Accent Gradient -->
+    <linearGradient id="arancioLaser" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffedd5"/>
+      <stop offset="20%" stop-color="#ff8c33"/>
+      <stop offset="70%" stop-color="#ff5500"/>
+      <stop offset="100%" stop-color="#b43403"/>
+    </linearGradient>
+
+    <!-- Titanium Platinum Infill for Center Negative M -->
+    <linearGradient id="titaniumPlat" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="35%" stop-color="#f1f5f9"/>
+      <stop offset="70%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+
+    <!-- High-Tech Forged Carbon Texture -->
+    <pattern id="forgedCarbon" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="#070b13"/>
+      <polygon points="0,0 12,4 16,14 4,10" fill="#0f1726" opacity="0.75"/>
+      <polygon points="12,4 24,0 20,12 16,8" fill="#162238" opacity="0.55"/>
+      <polygon points="4,10 16,14 12,24 0,20" fill="#0c1322" opacity="0.8"/>
+      <polygon points="16,14 24,12 24,24 14,22" fill="#1c2840" opacity="0.6"/>
+      <line x1="0" y1="12" x2="24" y2="12" stroke="#ff6b00" stroke-width="0.3" opacity="0.15"/>
+    </pattern>
+
+    <!-- Glow Filter for Ambient Presence -->
+    <filter id="stealthGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#ff5500" flood-opacity="0.35"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.9"/>
+    </filter>
+  </defs>
+
+  <!-- 1. BASE OUTER SHIELD: AGGRESSIVE SANT AGATA HEXAGONAL FACET -->
+  <g filter="url(#stealthGlow)">
+    <!-- Outer Stealth Armor Plate -->
+    <path d="M 200,16 L 358,68 L 332,284 L 200,442 L 68,284 L 42,68 Z" 
+          fill="url(#shieldBase)" 
+          stroke="url(#stealthBevel)" 
+          stroke-width="5" 
+          stroke-linejoin="miter" 
+          stroke-miterlimit="4"/>
+
+    <!-- Forged Carbon Monocoque Core -->
+    <path d="M 200,28 L 344,76 L 320,276 L 200,424 L 80,276 L 56,76 Z" 
+          fill="url(#forgedCarbon)"/>
+
+    <!-- High-Precision Arancio Laser Pinstripe (0.8mm Racing Spec) -->
+    <path d="M 200,36 L 334,82 L 312,270 L 200,412 L 88,270 L 66,82 Z" 
+          fill="none" 
+          stroke="url(#arancioLaser)" 
+          stroke-width="1.8" 
+          stroke-opacity="0.85" 
+          stroke-linejoin="round"/>
+  </g>
+
+  <!-- 2. TOP APEX: STERRATO ROOF-SNORKEL / TWIN NACA DUCTS -->
+  <g transform="translate(200, 52)">
+    <!-- Snorkel Scoop Bevel -->
+    <polygon points="0,-6 18,12 -18,12" fill="url(#arancioLaser)" opacity="0.9"/>
+    <polygon points="0,-2 12,10 -12,10" fill="#04070e"/>
+    <!-- Lateral Aero Splitters -->
+    <line x1="-36" y1="10" x2="-16" y2="10" stroke="url(#stealthBevel)" stroke-width="2" stroke-linecap="round"/>
+    <line x1="16" y1="10" x2="36" y2="10" stroke="url(#stealthBevel)" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="0" cy="6" r="2" fill="#ffffff"/>
+  </g>
+
+  <!-- 3. THE MMM MONOGRAM: 12-DEGREE FORWARD RAKE & Y-SHAPE STEALTH CHAMFERS -->
+  <!-- Centered dynamically, skewed for aerodynamic forward velocity -->
+  <g transform="translate(200, 206)">
+    <g transform="skewX(-12)">
+      
+      <!-- LEFT M: SOLID ARANCIO XANTO WITH 60-DEGREE TOP CHAMFERS -->
+      <path d="M -118,-52 L -94,-52 L -78,-4 L -62,-52 L -38,-52 L -38,52 L -60,52 L -60,-14 L -72,22 L -84,22 L -96,-14 L -96,52 L -118,52 Z" 
+            fill="url(#arancioLaser)"
+            stroke="#ffffff"
+            stroke-width="0.8"
+            stroke-opacity="0.3"/>
+
+      <!-- CENTER NEGATIVE SPACE BLOCK: RECESSED OBSIDIAN APERTURE -->
+      <rect x="-33" y="-54" width="66" height="108" rx="4" 
+            fill="#050810" 
+            stroke="url(#arancioLaser)" 
+            stroke-width="2"/>
+
+      <!-- THE INVERTED M: BRUSHED TITANIUM / PLATINUM (SHARP Y-CHEVRON CUT) -->
+      <path d="M -28,-46 L -12,-46 L 0,2 L 12,-46 L 28,-46 L 28,46 L 14,46 L 14,-16 L 4,18 L -4,18 L -14,-16 L -14,46 L -28,46 Z" 
+            fill="url(#titaniumPlat)"
+            stroke="#ffffff"
+            stroke-width="0.8"
+            stroke-opacity="0.4"/>
+
+      <!-- RIGHT M: SOLID ARANCIO XANTO COMPLEMENTARY WING -->
+      <path d="M 38,-52 L 62,-52 L 78,-4 L 94,-52 L 118,-52 L 118,52 L 96,52 L 96,-14 L 84,22 L 72,22 L 60,-14 L 60,52 L 38,52 Z" 
+            fill="url(#arancioLaser)"
+            stroke="#ffffff"
+            stroke-width="0.8"
+            stroke-opacity="0.3"/>
+
+    </g>
+  </g>
+
+  <!-- 4. LOWER THIRD: COLLECTOR TECHNICAL HALLMARK PLATE -->
+  <g transform="translate(200, 318)" text-anchor="middle">
+    <!-- Aerodynamic Diffuser Winglet (Y-Shape Sterrato DNA) -->
+    <path d="M -50,-8 L -20,-2 L 0,-14 L 20,-2 L 50,-8 L 32,2 L 0,-4 L -32,2 Z" 
+          fill="url(#arancioLaser)"/>
+
+    <!-- Technical Badge Plate: Crisp 1 OF 1499 -->
+    <rect x="-76" y="8" width="152" height="24" rx="4" 
+          fill="#070c16" 
+          stroke="url(#stealthBevel)" 
+          stroke-width="1.2"/>
+    
+    <text y="24.5" 
+          font-family="'Space Grotesk', -apple-system, sans-serif" 
+          font-size="11" 
+          font-weight="900" 
+          letter-spacing="3" 
+          fill="#ffffff">1 OF 1499</text>
+
+    <!-- Subtitle: Spec Provenance -->
+    <text y="46" 
+          font-family="'Space Grotesk', -apple-system, sans-serif" 
+          font-size="8" 
+          font-weight="700" 
+          letter-spacing="2" 
+          fill="#ff8c33">HURAC&#193;N STERRATO &#183; MMM</text>
+  </g>
+
+  <!-- 5. BOTTOM RAZOR STINGER (REAR SPLITTER FIN) -->
+  <polygon points="200,392 206,412 194,412" fill="url(#arancioLaser)"/>
+</svg>

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" width="100%" height="100%">
+  <defs>
+    <!-- Background Shield Gradient -->
+    <linearGradient id="shieldBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#192338"/>
+      <stop offset="50%" stop-color="#0b1120"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </linearGradient>
+
+    <!-- Metallic Gold/Orange Border Gradient -->
+    <linearGradient id="shieldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="25%" stop-color="#fde68a"/>
+      <stop offset="50%" stop-color="#d97706"/>
+      <stop offset="85%" stop-color="#ff6b00"/>
+      <stop offset="100%" stop-color="#9a3412"/>
+    </linearGradient>
+
+    <!-- Monogram Metallic Infill -->
+    <linearGradient id="monoGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#fef08a"/>
+      <stop offset="65%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
+    </linearGradient>
+
+    <linearGradient id="monoOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffedd5"/>
+      <stop offset="30%" stop-color="#ff8c33"/>
+      <stop offset="70%" stop-color="#ff5500"/>
+      <stop offset="100%" stop-color="#b43403"/>
+    </linearGradient>
+
+    <!-- Carbon Fiber Pattern -->
+    <pattern id="carbonMesh" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#070b14"/>
+      <path d="M0 4 L4 0 L8 4 L4 8 Z" fill="#11192b" opacity="0.6"/>
+      <path d="M4 4 L6 2 L8 4 L6 6 Z" fill="#18233a" opacity="0.4"/>
+    </pattern>
+
+    <filter id="emblemGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#ff6b00" flood-opacity="0.32"/>
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000000" flood-opacity="0.85"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Shield Shadow & Base -->
+  <g filter="url(#emblemGlow)">
+    <!-- Primary Outer Shield (Hexagonal Supercar Shield) -->
+    <path d="M 200,18 L 354,72 L 328,295 L 200,435 L 72,295 L 46,72 Z" 
+          fill="url(#shieldBg)" stroke="url(#shieldBorder)" stroke-width="6" stroke-linejoin="round"/>
+    
+    <!-- Carbon Weave Inlay -->
+    <path d="M 200,30 L 342,80 L 318,286 L 200,418 L 82,286 L 58,80 Z" 
+          fill="url(#carbonMesh)"/>
+
+    <!-- Inner Metallic Pinstripe -->
+    <path d="M 200,38 L 334,86 L 312,280 L 200,406 L 88,280 L 66,86 Z" 
+          fill="none" stroke="url(#shieldBorder)" stroke-width="1.8" stroke-opacity="0.75" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Top Apex Crest / Notch -->
+  <polygon points="200,50 209,66 191,66" fill="url(#monoGold)"/>
+  <circle cx="200" cy="46" r="2.5" fill="#ffffff"/>
+
+  <!-- The MMM Monogram (Exact translation of the user's uploaded reference) -->
+  <!-- Centered around y = 150 to 250 (Height = 100, Width = 230) -->
+  <g transform="translate(85, 150)">
+    <!-- Left M: Solid Bold Block -->
+    <path d="M 0,0 L 22,0 L 36,46 L 50,0 L 72,0 L 72,100 L 52,100 L 52,36 L 42,70 L 30,70 L 20,36 L 20,100 L 0,100 Z" 
+          fill="url(#monoOrange)"/>
+
+    <!-- Center Black Column with Inverted White/Gold M Cutout (Negative Space MMM) -->
+    <rect x="79" y="0" width="72" height="100" rx="3" fill="#080c14" stroke="url(#shieldBorder)" stroke-width="1.5"/>
+    
+    <!-- The White/Gold Cutout M inside center block -->
+    <path d="M 83,4 L 98,4 L 115,52 L 132,4 L 147,4 L 147,96 L 133,96 L 133,32 L 121,68 L 109,68 L 97,32 L 97,96 L 83,96 Z" 
+          fill="url(#monoGold)"/>
+
+    <!-- Right M: Solid Bold Block -->
+    <path d="M 158,0 L 180,0 L 194,46 L 208,0 L 230,0 L 230,100 L 210,100 L 210,36 L 200,70 L 188,70 L 178,36 L 178,100 L 158,100 Z" 
+          fill="url(#monoOrange)"/>
+  </g>
+
+  <!-- Bottom Heraldic Stars / Badge details -->
+  <g transform="translate(200, 305)" text-anchor="middle">
+    <!-- Star cluster -->
+    <polygon points="0,-16 3.5,-6 14,-6 5.5,1 9,11 0,4.5 -9,11 -5.5,1 -14,-6 -3.5,-6" fill="url(#monoGold)"/>
+    <polygon points="-36,-13 -33,-4 -23,-4 -31,2 -28,11 -36,5.5 -44,11 -41,2 -49,-4 -39,-4" fill="url(#shieldBorder)" transform="scale(0.7)"/>
+    <polygon points="36,-13 39,-4 49,-4 41,2 44,11 36,5.5 28,11 31,2 23,-4 33,-4" fill="url(#shieldBorder)" transform="scale(0.7)"/>
+    
+    <text y="36" font-family="'Space Grotesk', 'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="url(#monoGold)" letter-spacing="4">NT · 06 · MMM</text>
+    <text y="50" font-family="'Space Grotesk', sans-serif" font-size="7.5" font-weight="700" fill="#94a3b8" letter-spacing="2">EDIZIONE LIMITATA · 1 DI 1499</text>
+  </g>
+
+  <!-- Bottom Tip Speed Stinger -->
+  <polygon points="200,385 205,404 195,404" fill="url(#shieldBorder)"/>
+</svg>
